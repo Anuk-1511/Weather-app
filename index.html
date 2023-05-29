@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Responsive Landing Page with Nav Menu</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    color: rgb(0, 0, 0);
+	background: rgb(25,41,56);
+background: linear-gradient(163deg, rgba(25,41,56,1) 0%, rgba(185,160,182,1) 33%, rgba(160,161,185,1) 54%, rgba(160,180,185,1) 66%);
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 64px;
+    font-size: 16px;
+    position: relative;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-size: 1.7em;
+    letter-spacing: 1px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu button {
+    display: none;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+}
+
+.menu-list li {
+    display: inline-block;
+    margin-left: 32px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-list li.active,
+.menu-list li:hover {
+    color: #ff5360;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.right img {
+    width: 100%;
+}
+
+.left {
+    max-width: 45%;
+    padding: 40px 64px;
+}
+
+.right {
+    padding: 40px 48px;
+}
+
+.title {
+    color: black;
+    font-size: 3.2em;
+    width: 50%;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+}
+
+.msg {
+    color: #9fb5cc;
+    font-size: 1.1em;
+    letter-spacing: 0.7px;
+    line-height: 32px;
+    margin-bottom: 48px;
+}
+
+button.cta {
+    border: none;
+    outline: none;
+    background-color: #711def;
+    color: #fff;
+    padding: 18px 32px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1),
+    0 15px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: opacity 0.9;
+}
+
+button.cta:hover {
+    opacity: 0.9;
+}
+
+.footer {
+        color: rgb(0, 0, 0);
+	background: rgb(25,41,56);
+    background: linear-gradient(163deg, rgba(25,41,56,1) 0%, rgba(185,160,182,1) 33%, rgba(160,161,185,1) 54%, rgba(160,180,185,1) 66%);
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+/*  -----    RESPONSIVENESS    -----  */
+
+@media (max-width:800px) {
+    header,
+    .left,
+    .right {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .main {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left {
+        font-size: 0.8em;
+    }
+
+    .left * {
+        width: 95%;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    button.cta {
+        max-width: 60%;
+    }
+
+    .right img {
+        width: 80%;
+    }
+
+    /* Nav Menu Responsiveness */
+
+    .menu button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+        color: #711def;
+        outline: none;
+        font-size: 1.7em;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .menu i.fa-times,
+    .menu.opened i.fa-bars {
+        display: none;
+    }
+
+    .menu.opened i.fa-times,
+    .menu i.fa-bars {
+        display: block;
+        animation: enter 0.8s;
+    }
+
+    @keyframes enter {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .menu-list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100%;
+        background-color: #711def;
+        color: #fff;
+        padding: 46px;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-top: 80px;
+        transform: translateX(100%);
+        transition: transform 0.5s;
+    }
+
+    .menu-list li {
+        font-size: 1.7em;
+        margin: 32px 0px;
+    }
+
+    .menu.opened .menu-list {
+        transform: translateX(0);
+    }
+
+    .menu.opened button {
+        color: #fff;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WeatherUpdates</h1>
+
+        <section class="menu">
+            <ul class="menu-list">
+               
+				<li><a onclick="home()">Home</a></li>
+				<li><a onclick="main()">Weather</a></li>
+				<li><a onclick="about()">About</a></li>
+				<li><a onclick="contact()">Contact</a></li>
+               
+            </ul>
+
+            <button>
+                <i class="fas fa-times"></i>
+                <i class="fas fa-bars"></i>
+            </button>
+        </section>
+    </header>
+
+    <section class="main">
+
+        <section class="left">
+            <p class="title">Explore the Forecast</p>
+            <p style = "font-size: large;">Stay ahead of the weather with Explore the Forecast: 
+				Your Weather Hub. Get accurate and up-to-date weather information for any location. 
+				From current conditions to hourly and extended forecasts, we provide you with the essential tools to plan your day, week, or even vacation. 
+				Whether you're checking the temperature, tracking storms, or simply curious about the weather trends, our website is your go-to resource. 
+				Discover detailed radar maps, expert insights, and personalized recommendations to make informed decisions and stay prepared. Embrace the elements with confidence by relying on Explore the Forecast: 
+				Your Weather Hub."</p>
+				<br>
+            <button class="cta" onclick="main()">Get Weather update</button>
+        </section>
+
+        <section class="right">
+            <img src="1.jpg" alt="Langing image" >
+        </section>
+
+    </section>
+
+	<div class="footer">
+		<p>Quick Links:</p>
+		<a onclick="home()">Home</a>
+		<a onclick="main()">Weather</a>
+		<a onclick="about()">About Us</a>
+		<a onclick="contact()">Contact Us</a>
+		<p>© 2023 Explore the Forecast. All rights reserved by Anubhav Kharwar</p>       
+	  </div>
+
+    <script>
+        var menu = document.querySelector('.menu');
+        var menuBtn = document.querySelector('.menu button');
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('opened')
+        })
+
+        function main() {
+            // Add your login logic here
+            location.href="http://localhost:8080/main";
+        }
+		function home() {
+            // Add your login logic here
+            location.href="http://localhost:8080/";
+        }
+
+		function about() {
+            // Add your registration logic here
+            location.href = "http://localhost:8080/about";
+        }
+        function contact() {
+            // Add your registration logic here
+            location.href = "http://localhost:8080/contact";
+        }
+    </script>
+
+
+</body>
+
+</html>
