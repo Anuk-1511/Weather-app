@@ -27,7 +27,7 @@ Obtain an API key from a weather data provider such as OpenWeatherMap.
 Rename the .env.example file to .env and add your API key:
   ```bash
    API_KEY=your-api-key
-   npm start ``
+   npm start```
 
 
 Open your web browser and visit http://localhost:8080 to use the application.
