@@ -10,7 +10,7 @@ A simple weather application built using Node.js that provides current weather i
 
 ## Demo
 
-Check out the live demo of the application [here](https://your-deployment-link.com).
+Check out the live demo of the application [https://weather-app-s19o.onrender.com/](https://weather-app-s19o.onrender.com/).
 
 ## Installation
 
@@ -27,16 +27,11 @@ Obtain an API key from a weather data provider such as OpenWeatherMap.
 Rename the .env.example file to .env and add your API key:
   ```bash
    API_KEY=your-api-key
-   npm start````
+   npm start`
 
 
 Open your web browser and visit http://localhost:8080 to use the application.
 
-License
+# License
 This project is licensed under the MIT License.
-
-
-Make sure to replace `https://your-deployment-link.com` with the actual deployment link for your application, and update the repository information and API key instructions accordingly. Also, include the `LICENSE` file in your repository and adjust the license name if needed.
-
-This is just a basic template to get you started. Feel free to customize and add more sections as per your specific project requirements.
 
